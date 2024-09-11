@@ -1,26 +1,28 @@
 import java.util.*;
 
-public class WordSearch extends Grid {
+public class WordSearch {
     private final static int MINIMUM_SIZE = 3;
-    public List<List<String>> wordGrid;
+    public CharGrid charGrid;
+    public HashMap<String,int[][]> latestSolution;
     public int x;
     public int y;
 
-    public WordSearch(List<List<String>> wordGrid) {
-        this.wordGrid = wordGrid;
-        if (this.wordGrid.size() < MINIMUM_SIZE || this.wordGrid.get(0).size() < MINIMUM_SIZE) {
+    public WordSearch(CharGrid charGrid) {
+        this.charGrid = charGrid;
+        if (this.charGrid.size() < MINIMUM_SIZE || this.charGrid.get(0).size() < MINIMUM_SIZE) {
             System.out.println(String.format("Invalid grid size, grid must be greater than %d",MINIMUM_SIZE-1));
             throw new Error();
         }
-        this.x = wordGrid.size();
-        this.y = wordGrid.get(0).size();
-        System.out.println(String.format("%s,%i,%i",Arrays.toString(wordGrid.toArray()),x,y));
+        this.x = charGrid.size();
+        this.y = charGrid.get(0).size();
     }
     public WordSearch(String str, int x, int y) {
+        this(new CharGrid(str,x,y));
     }
-    protected HashMap<String,int[][]> solve() {
+    public HashMap<String,int[][]> solve(List<String> wordList) {
 
-        return new HashMap<String,int[][]>();
+        this.latestSolution = new HashMap<String,int[][]>();
+        return latestSolution;
     }
 }
 
