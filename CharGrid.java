@@ -4,7 +4,7 @@ public class CharGrid extends ArrayList<List<Character>> {
     public final int x;
     public final int y;
 
-    private void emptyGrid(int x, int y) {
+    public void emptyGrid(int x, int y) {
         this.clear();
         for (int i = 0; i < x; i++) {
             this.add(new ArrayList<Character>());
@@ -22,5 +22,9 @@ public class CharGrid extends ArrayList<List<Character>> {
         }
         this.x = x;
         this.y = y;
+    }
+    @Override
+    public String toString() {
+        return Arrays.toString(this.toArray());
     }
 }
