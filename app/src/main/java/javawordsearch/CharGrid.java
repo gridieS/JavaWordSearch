@@ -1,3 +1,4 @@
+package javawordsearch;
 import java.util.*;
 
 public class CharGrid extends ArrayList<List<Character>> {
